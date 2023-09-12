@@ -23,7 +23,7 @@ const questions = [
         littUenig: {AP:1 , SP:2, KRF:1, H:1, FrP:1},
         heltUenig: {AP:2 , SP:1, KRF:2, H:2, FrP:2},
     },
-    {question: 'Your question/statement',
+    {question: 'Undomsskoleeelever i Bergen skal få gratis skolemåltider',
         heltEnig: {R:2, SV:2, AP:2, SP:2, MDG:2},
         littEnig: {R:1, SV:1, AP:1, SP:1, MDG:1},
         littUenig: {KRF:2, V:2, H:1, FrP:1},
@@ -45,7 +45,9 @@ let partyScores = {
 
 const btnNext = document.getElementById('btnNext');
 const questionT = document.getElementById('question');
-const result = document.getElementById('result');
+const resultBox = document.getElementById('result');
+const button = document.getElementById('awnser');
+const form = document.getElementById('valgomatForm');
 
 btnNext.addEventListener('click', nextQuesiton);
 
@@ -58,15 +60,33 @@ function nextQuesiton() {
     if (radioChecked) {
         calculateResults(qidx, radioChecked.value)
         qidx++
-        if (qidx <= questions.length -1) { 
+        if (qidx < questions.length ) {
             questionT.innerHTML = questions[qidx].question
-            radioChecked.checked = false
         } else {
-            //
+            showResult()
+            form.style.display = 'none'
         }
+        radioChecked.checked = false
     }
 }
 
+function showResult() {
+    let sorted = new Map()
+    
+    while (sorted.size < Object.keys(partyScores).length) {
+        let max = null
+        for (party in partyScores) {
+            if (max === null && !sorted.has(party)) {
+                max = party
+            }
+            else if (partyScores[party].length > partyScores[max] && !sorted.has(party)) {
+                max = party 
+            }
+        }
+        sorted.set(max, partyScores[max])
+    }
+    console.log(sorted)
+}
 
 
 function calculateResults(qidx, chosen) {

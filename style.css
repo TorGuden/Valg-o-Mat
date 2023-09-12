@@ -61,6 +61,17 @@ button {
     padding: 10px 20px;
     font-size: 20px;
     border-radius: 6pc;
+    background-image: url(/img/avatarguystaring.jpg);
+    background-size: 120px;
+    background-position: center;
+}
+
+input[type=radio] {
+    display: block;
+    margin: 0 auto;
+}
+label {
+    display: inline-block;
 }
 
 .pil {
