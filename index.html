@@ -7,18 +7,14 @@
     <title>Partinr</title>
 </head>
 <body>
-    <!-- 
-        Spørsmål: Liker du kaffe?
-        Valg: Ja, Nei, Litt, Har ikke Smakt
-        Valget ditt gir 1+ for de som er enige: Ja(PP), Nei(AV), Litt(BB), Har ikke sakt (Ingen)
-        Til slutt regnes hvor mange prosent du passet med de forskjellige partiene. 
-     -->
     <header>
-        <img class="Partinr" src="/img/Partinr Logo.png">
+        <img class="Partinr" src="./img/Partinr Logo.png">
     </header>
     <main>
-        <div class="griddy">
-            
+        <button id="buttonStart">
+            START!
+        </button>
+        <div id="griddyform">
             <form class="form" id="valgomatForm" autocomplete="off">
                 <h2 id = "question"></h2>
                 <label><input type="radio" name="answer" value="heltEnig"> Helt enig</label>
@@ -29,9 +25,14 @@
                 <button id = "btnNext" type="button">Neste
                         <img class="pil" src="./img/pil.png">
                 </button>
+                <div id="progessBar">
+
+                </div>
             </form>
+        </div>
+        <div id="result">
             <h2>Ditt resultat:</h2>
-            <p id="result"></p>
+            <div id="partyResult"></div>
         </div>
     </main>
 </body>

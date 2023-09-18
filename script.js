@@ -43,16 +43,39 @@ let partyScores = {
     FrP: 0
 }
 
+let partyList = {
+    R: "Rødt",
+    SV: "SV",
+    AP: "Arbeiderpartiet",
+    SP: "Senterpartiet",
+    MDG: "Miljøpartiet De Grønne",
+    KRF: "Kristelig Folkeparti",
+    V: "Venstre",
+    H: "Høyre",
+    FrP: "Fremskrittspartiet"
+}
+
 const btnNext = document.getElementById('btnNext');
 const questionT = document.getElementById('question');
-const resultBox = document.getElementById('result');
+const resultBox = document.getElementById('partyResult');
 const button = document.getElementById('awnser');
 const form = document.getElementById('valgomatForm');
+const progressBar = document.getElementById('progressBar');
+const startButton = document.getElementById('buttonStart');
+const griddyform = document.getElementById('griddyform');
+const result = document.getElementById('result');
 
+startButton.addEventListener('click', triggerstart)
 btnNext.addEventListener('click', nextQuesiton);
 
 let qidx = 0
 questionT.innerHTML = questions[qidx].question
+progressBar.innerHTML += "<p id='currentProgress'>" + qidx + "av" + qidx.length + "</p>"
+
+function triggerstart() {
+    startButton.style.visibility = "hidden";
+    griddyform.style.visibility = "visible";
+}
 
 function nextQuesiton() {
     let radioChecked = document.querySelector('input[name="answer"]:checked')
@@ -70,6 +93,18 @@ function nextQuesiton() {
     }
 }
 
+function calculateResults(qidx, chosen) {
+    console.log(qidx, chosen)
+
+    let partyChoices = questions[qidx][chosen]
+    console.log(partyChoices)
+
+    for (let party in partyChoices){
+        partyScores[party] += partyChoices[party]
+    }
+    console.log(partyScores)
+}
+
 function showResult() {
     let sorted = new Map()
     
@@ -79,24 +114,19 @@ function showResult() {
             if (max === null && !sorted.has(party)) {
                 max = party
             }
-            else if (partyScores[party].length > partyScores[max] && !sorted.has(party)) {
+            else if (partyScores[party] > partyScores[max] && !sorted.has(party)) {
                 max = party 
             }
         }
         sorted.set(max, partyScores[max])
+        result.style.visibility = 'visible'
     }
     console.log(sorted)
-}
-
-
-function calculateResults(qidx, chosen) {
-    console.log(qidx, chosen)
-
-    let partyChoices = questions[qidx][chosen]
-    console.log(partyChoices)
-
-    for (let party in partyChoices) {
-        partyScores[party] += partyChoices[party]
-    }
-    console.log(partyScores)
+    let resultText = ""
+    sorted.forEach((score, party) => {
+        partyName = partyList[party]
+        resultText += "<p class='party'>" + partyName + "=" + score + "</p>"
+        console.log(party, score)
+    });
+    resultBox.innerHTML = resultText
 }
