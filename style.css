@@ -18,8 +18,10 @@ h2 {
     font-size: 20px;
 }
 
-body {
-    background-color: rgb(206, 226, 233);
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
 }
 
 label {
@@ -28,7 +30,7 @@ label {
 }
 
 header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, .95);
     box-shadow: 1px 2px 2px rgba(0, 0, 0, .4);
 }
 
@@ -37,25 +39,26 @@ hr {
 }
 
 .Partinr {
-    height:50px
+    height:50px;
 }
 
 main {
-    background-color: white;
+    background-color: rgba(255, 255, 255, .85);
     text-align: center;
     width: 80%;
-    margin: 20px auto;
+    margin: 100px auto;
     padding: 20px;
-    max-width: 900px;
-    min-width: 350px;
+    max-width: 750px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
     border-radius: 5px;
+    min-height: 350px;  
 }
 
 #buttonStart {
     border-radius: 6pc;
     padding: 20px 30px;
     font-size: medium;
+    margin-top: 130px;
 }
 
 .bntNext {
@@ -71,20 +74,24 @@ input[type=radio] {
     display: block;
     margin: 0 auto;
 }
+
 label {
     display: inline-block;
+    padding: 0 10px;
 }
 
 .pil {
     vertical-align:text-bottom
 }
 
-input {
-    width: 30px;
+.answer {
+    transform: scale(1.5);
+    height: 30px;
 }
 
 #griddyform {
-    visibility: hidden;
+    display: none;
+    margin-top: 130px;
 }
 
 #partyResult {
@@ -93,9 +100,73 @@ input {
 }
 
 #result {
-    visibility: hidden;
+    display: none;
 }
 
 .party {
     padding: 3px;
+}
+
+#progressBar {
+    padding: 10px;
+    font-weight: bolder;
+}
+
+#btnNext {
+    font-size: 16px;
+    padding: 6px;
+    background-color: rgb();
+}
+
+.form {
+    padding-top: 75px;
+}
+  
+/*Parllax Items*/
+
+.parallax-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    perspective: 1px;
+    overflow: hidden; /* Add this line to hide overflow */
+    overflow-y: hidden;
+}
+  
+.background {
+    background-image: url('./img/backgrounds.png');
+    /* background: radial-gradient(#8AB3B7,#8AB3B7,#2F5361); */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    transform: translateZ(-1px) scale(2);
+}
+  
+.middleground {
+    background-image: url('./img/mountains2.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 100px;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    z-index: -2;
+}
+  
+.foreground {
+    background-image: url('./img/mountains.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 10;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: -1;
 }

@@ -1,34 +1,65 @@
+// Question Container
 const questions = [
-    {question: 'Vi må begrense hvor mye en kan tjene på å eie private barnehager',
-        heltEnig: {R:2 , SV:2 , AP:1 , MDG:1},
-        littEnig: {R:1 , SV:1 , AP:2 , MDG:2},
-        littUenig: {SP:2 , KRF:2 , V:2 , H:1 , FrP:1 },
-        heltUenig: {SP:1 , KRF:1 , V:1 , H:2 , FrP:2 },
+    {question: 'Det bør bli færre parkeringsplasser i sentrum',
+        heltEnig: {R: 2, SV: 2, AP: 1, SP: -2, MDG: 2, KRF: -2, V: 2, H: -2, FrP:-2 },
+        littEnig: {R: 1, SV: 1, AP: 2, SP: -1, MDG: 1, KRF: -1, V: 1, H: -1, FrP:-1 },
+        littUenig: {R: -1, SV: -1, AP: -1, SP: 1, MDG: -1, KRF: 2, V: -1, H: 1, FrP:1 },
+        heltUenig: {R: -2, SV: -2, AP: -2, SP: 2, MDG: -2, KRF: 1, V: -2, H: 2, FrP:2 },
     },
-    {question: 'Bør mer av Bergen sitt arial bli brukt for å bygge boliger',
-        heltEnig: {AP:1 , SP:1, KRF:1, H:2, FrP:2},
-        littEnig: {AP:2 , SP:2, KRF:2, H:1, FrP:1},
-        littUenig: {R:1 , SV:2 , MDG:1, V:2},
-        heltUenig: {R:2 , SV:1 , MDG:2, V:1},
+    {question: 'Alle Bergens eldrehjem skal ha egne kjøkken',
+        heltEnig: {R: 2, SV: 2, AP: -2, SP: 2, MDG: -2, KRF: -2, V: -2, H: -2, FrP:2 },
+        littEnig: {R: 1, SV: 1, AP: -1, SP: 1, MDG: -1, KRF: -1, V: -1, H: -1, FrP:1 },
+        littUenig: {R: -1, SV: -1, AP: 2, SP: -1, MDG: 2, KRF: 2, V: 1, H: 2, FrP:-1 },
+        heltUenig: {R: -2, SV: -2, AP: 1, SP: -2, MDG: 1, KRF: 1, V: 2, H: 1, FrP:-2 },
     },
-    {question: 'Det bør bli omkamp for å hindre at bybanen går forbi Bryggen',
-        heltEnig: {SP:2, FrP:2},
-        littEnig: {SP:1, FrP:1},
-        littUenig: {R:1 , SV:1 , AP:1, MDG:1, KRF:1, V:1, H:1},
-        heltUenig: {R:2 , SV:2 , AP:2, MDG:2, KRF:2, V:2, H:2},
+    {question: 'Norsk politi må ha lov til å ransake deg for å finne ut om du har narkotika til eget bruk',
+        heltEnig: {R: -2, SV: -2, AP: 1, SP: 2, MDG: -2, KRF: 2, V: -2, H: -2, FrP: 2},
+        littEnig: {R: -1, SV: -1, AP: 2, SP: 1, MDG: -1, KRF: 1, V: -1, H: -1, FrP: 1},
+        littUenig: {R: 1, SV: 1, AP: -1, SP: -1, MDG: 1, KRF: -1, V: 1, H: 1, FrP: -1},
+        heltUenig: {R: 2, SV: 1, AP: -2, SP: -2, MDG: 2, KRF: -2, V: 2, H: 2, FrP: -2},
     },
-    {question: 'Det skal ikke komme cruiseskip til Bergen',
-        heltEnig: {R:2, SV:2, MDG:2, V:1},
-        littEnig: {R:1, SV:1, MDG:1, V:2},
-        littUenig: {AP:1 , SP:2, KRF:1, H:1, FrP:1},
-        heltUenig: {AP:2 , SP:1, KRF:2, H:2, FrP:2},
+    {question: 'Vi kan prøve ut regulert salg av cannabis i Norge',
+        heltEnig: {R: -2, SV: -2, AP:-2 , SP:-2 , MDG: 2, KRF:-2 , V: 2, H:-2 , FrP:-2 },
+        littEnig: {R: -1, SV: -1, AP:-1 , SP:-1 , MDG: 1, KRF:-1 , V: 1, H:-1 , FrP:-1 },
+        littUenig: {R: 1, SV: 1, AP:1 , SP:1 , MDG: -1, KRF:1 , V: -1, H:1 , FrP:1 },
+        heltUenig: {R: 2, SV: 2, AP:2 , SP:2 , MDG: -2, KRF:2 , V: -2, H:2 , FrP:2 },
     },
-    {question: 'Undomsskoleeelever i Bergen skal få gratis skolemåltider',
-        heltEnig: {R:2, SV:2, AP:2, SP:2, MDG:2},
-        littEnig: {R:1, SV:1, AP:1, SP:1, MDG:1},
-        littUenig: {KRF:2, V:2, H:1, FrP:1},
-        heltUenig: {KRF:1, V:1, H:2, FrP:2},
+    {question: 'Det er ikke greit å øke bompengene mer',
+        heltEnig: {R: 2, SV: -2, AP: 2, SP: 2, MDG: -2, KRF: 1, V: -2, H: 2, FrP:2 },
+        littEnig: {R: 1, SV: -1, AP: 1, SP: 1, MDG: -1, KRF: 2, V: -1, H: 1, FrP:1 },
+        littUenig: {R: -1, SV: 1, AP: -1, SP: -1, MDG: 1, KRF: -1, V: 2, H: -1, FrP:-1 },
+        heltUenig: {R: -2, SV: 2, AP: -2, SP: -2, MDG: 2, KRF: -2, V: 1, H: -2, FrP:-2 },
     },
+    {question: 'Det skal ikke få komme cruiseskip til Bergen',
+        heltEnig: {R: 2, SV: 2, AP: -2, SP: -2, MDG: 2, KRF: -2, V: 1, H: -2, FrP: -2},
+        littEnig: {R: 1, SV: 1, AP: -1, SP: -1, MDG: 1, KRF: -1, V: 2, H: -1, FrP: -1},
+        littUenig: {R: -1, SV: -1, AP: 1, SP: 2, MDG: -1, KRF: 1, V: -1, H: 1, FrP: 1},
+        heltUenig: {R: -2, SV: -2, AP: 2, SP: 1, MDG: -2, KRF: 2, V: -2, H: 2, FrP: 2},
+    },
+    {question: 'Ungdomsskoleelever i Bergen skal få gratis skolemåltider',
+        heltEnig: {R: 2, SV: 2, AP: 2, SP: 2, MDG: 2, KRF: -2, V: -2, H: -2, FrP: -2},
+        littEnig: {R: 1, SV: 1, AP: 1, SP: 1, MDG: 1, KRF: -1, V: -1, H: -1, FrP: -1},
+        littUenig: {R: -1, SV: -1, AP: -1, SP: -1, MDG: -1, KRF: 2, V: 2, H: 1, FrP: 1},
+        heltUenig: {R: -2, SV: -2, AP: -2, SP: -2, MDG: -2, KRF: 1, V: 1, H: 2, FrP: 2},
+    },
+    {question: 'På havbunnen finnes nyttige metaller og mineraler som Norge bør hente opp',
+        heltEnig: {R: -2, SV: -2, AP: 2, SP: 1, MDG: -2, KRF: 1, V: -2, H: 1, FrP: 2},
+        littEnig: {R: -1, SV: -1, AP: 1, SP: 2, MDG: -1, KRF: 2, V: -1, H: 2, FrP: 1},
+        littUenig: {R: 2, SV: 2, AP: -1, SP: -1, MDG: 1, KRF: -1, V: 1, H: -1, FrP: -1},
+        heltUenig: {R: 1, SV: 1, AP: -2, SP: -2, MDG: 2, KRF: -2, V: 2, H: -2, FrP: -2},
+    },
+    {question: 'Eiendomsskatten i Bergen må fjernes på sikt',
+        heltEnig: {R: -2, SV: -2, AP: -2, SP: 2, MDG: -2, KRF: -2, V: -2, H: 2, FrP: 2},
+        littEnig: {R: -1, SV: -1, AP: -1, SP: 1, MDG: -1, KRF: -1, V: -1, H: 1, FrP: 1},
+        littUenig: {R: 1, SV: 1, AP: 1, SP: -1, MDG: 1, KRF: 2, V: 2, H: -1, FrP: -1},
+        heltUenig: {R: 2, SV: 2, AP: 2, SP: -2, MDG: 2, KRF: 1, V: 1, H: -2, FrP: -2},
+    },
+    {question: 'Utepils på Torgallmenningen bør bli et fast tilbud',
+        heltEnig: {R: -2, SV: -2, AP: -2, SP: -2, MDG: 2, KRF: -2, V: 2, H: 2, FrP: 2},
+        littEnig: {R: -1, SV: -1, AP: -1, SP: -1, MDG: 1, KRF: -1, V: 1, H: 1, FrP: 1},
+        littUenig: {R: 1, SV: 1, AP: 1, SP: 1, MDG: -1, KRF: 1, V: -1, H: -1, FrP: -1},
+        heltUenig: {R: 2, SV: 2, AP: 2, SP: 2, MDG: -2, KRF: 2, V: -2, H: -2, FrP: -2},
+    }
 ]; // ... add more questions
 
 let partyScores = {
@@ -55,6 +86,8 @@ let partyList = {
     FrP: "Fremskrittspartiet"
 }
 
+
+
 const btnNext = document.getElementById('btnNext');
 const questionT = document.getElementById('question');
 const resultBox = document.getElementById('partyResult');
@@ -70,21 +103,29 @@ btnNext.addEventListener('click', nextQuesiton);
 
 let qidx = 0
 questionT.innerHTML = questions[qidx].question
-progressBar.innerHTML += "<p id='currentProgress'>" + qidx + "av" + qidx.length + "</p>"
 
 function triggerstart() {
-    startButton.style.visibility = "hidden";
-    griddyform.style.visibility = "visible";
+    startButton.style.display = "none";
+    griddyform.style.display = "inline";
+    updateProgress();
 }
+
+function updateProgress() {
+    if ( (qidx+1) == questions.length) {
+        progressBar.innerHTML = "<p id='currentProgress'> Siste Spørsmål! </p>"
+    } else {
+    progressBar.innerHTML = "<p id='currentProgress'> Spørsmål " + (qidx+1) + " av " + questions.length + "</p>"
+    }
+};
 
 function nextQuesiton() {
     let radioChecked = document.querySelector('input[name="answer"]:checked')
-    
     if (radioChecked) {
         calculateResults(qidx, radioChecked.value)
         qidx++
         if (qidx < questions.length ) {
             questionT.innerHTML = questions[qidx].question
+            updateProgress();
         } else {
             showResult()
             form.style.display = 'none'
@@ -119,14 +160,27 @@ function showResult() {
             }
         }
         sorted.set(max, partyScores[max])
-        result.style.visibility = 'visible'
+        result.style.display = 'inline'
     }
     console.log(sorted)
     let resultText = ""
     sorted.forEach((score, party) => {
         partyName = partyList[party]
-        resultText += "<p class='party'>" + partyName + "=" + score + "</p>"
+        resultText += "<p class='party'>" + partyName + " = " + score + "</p>"
         console.log(party, score)
     });
     resultBox.innerHTML = resultText
 }
+
+// Parallax scrolling
+const container = document.querySelector('.parallax-container');
+const foreground = document.querySelector('.foreground');
+const middleground = document.querySelector('.middleground');
+
+container.addEventListener('mousemove', (e) => {
+    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+    foreground.style.transform = `translate(${xAxis * 1.5}px, ${yAxis * 1.5}px)`;
+    middleground.style.transform = `translate(${xAxis * 0.5}px, ${yAxis * 0.5}px)`;
+});
